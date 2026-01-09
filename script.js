@@ -67,3 +67,15 @@ setInterval(() => {
   watermark.style.left = `${40 + Math.random() * 20}%`;
 }, 3000);
 
+// Blur content when app goes to background
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    document.body.style.filter = "blur(12px)";
+  } else {
+    document.body.style.filter = "none";
+  }
+});
+
+//Disable long-press menu (save image / copy text)
+document.addEventListener("contextmenu", e => e.preventDefault());
+
